@@ -4,9 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Get £50 when you switch to Octopus</title>
-  <meta name="description" content="Switch using my referral link. If eligible, you get £50 and I get £50 after the switch completes. Quick steps, clear FAQs." />
+  <meta name="description" content="Switch using my referral link. If eligible, you get £50 after the switch completes. Quick steps, clear FAQs." />
 
-  <!-- Font fallback close to Octopus style -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -23,6 +22,8 @@
   <style>
     :root{
       --bg:#0b1020;
+      --bg2:#081028;
+      --bg3:#070a16;
       --text:#eef2ff;
       --muted:#b9c2e6;
       --line:rgba(255,255,255,.10);
@@ -37,20 +38,55 @@
 
     *{box-sizing:border-box}
     html,body{height:100%}
+    html{background: var(--bg);}
 
     body{
       margin:0;
       font-family: "Chromatophore", "Figtree", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background:
-        radial-gradient(1200px 700px at 15% 10%, rgba(124,58,237,.35), transparent 55%),
-        radial-gradient(900px 600px at 85% 20%, rgba(34,197,94,.25), transparent 55%),
-        radial-gradient(800px 500px at 60% 90%, rgba(251,113,133,.18), transparent 55%),
-        var(--bg);
       color:var(--text);
       line-height:1.65;
       text-rendering: geometricPrecision;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+
+      background:
+        radial-gradient(1600px 1000px at 18% 12%, rgba(124,58,237,.18), transparent 72%),
+        radial-gradient(1400px 950px at 86% 16%, rgba(240,80,248,.12), transparent 74%),
+        radial-gradient(1300px 900px at 60% 92%, rgba(34,197,94,.10), transparent 76%),
+        radial-gradient(1200px 900px at 50% 108%, rgba(240,80,248,.08), transparent 68%),
+        linear-gradient(
+          180deg,
+          var(--bg2) 0%,
+          #09112a 22%,
+          var(--bg) 56%,
+          #090d1b 78%,
+          #080b17 88%,
+          var(--bg3) 100%
+        );
+
+      background-repeat:no-repeat;
+      background-color: var(--bg3);
+      background-attachment: fixed;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background:
+        radial-gradient(1200px 900px at 50% 35%, rgba(255,255,255,.035), transparent 72%),
+        radial-gradient(900px 700px at 30% 80%, rgba(255,255,255,.025), transparent 74%),
+        linear-gradient(180deg, transparent 0%, transparent 72%, rgba(7,10,22,.35) 88%, rgba(7,10,22,.65) 100%);
+      filter: blur(18px);
+      opacity:.95;
+      z-index:-1;
+      transform: translateZ(0);
+    }
+
+    @media (max-width: 520px){
+      body{background-attachment: scroll;}
+      body::before{position:absolute;}
     }
 
     a{color:inherit}
@@ -80,7 +116,7 @@
     .hero{
       border:1px solid var(--line);
       border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
       box-shadow: var(--shadow);
       overflow:hidden;
     }
@@ -153,9 +189,9 @@
       letter-spacing:.2px;
       transition: transform .06s ease, filter .2s ease;
       user-select:none;
-      white-space:normal;          /* allow wrapping */
-      text-align:center;           /* centred if wraps */
-      line-height:1.15;            /* tighter for wrap */
+      white-space:normal;
+      text-align:center;
+      line-height:1.15;
     }
     .btn:active{transform: translateY(1px)}
 
@@ -168,13 +204,8 @@
       padding:20px 22px;
       font-size:20.8px;
     }
-
-    /* Ensure CTA text always fits nicely on small screens */
     @media (max-width: 520px){
-      .btn-primary{
-        font-size:18px;      /* slightly smaller on mobile */
-        padding:18px 18px;
-      }
+      .btn-primary{font-size:18px; padding:18px 18px}
     }
 
     .micro{
@@ -199,12 +230,7 @@
       letter-spacing:-.2px;
       font-weight:900;
     }
-    .list{
-      margin:0;
-      padding-left:20px;
-      color:var(--muted);
-      font-weight:700;
-    }
+    .list{margin:0; padding-left:20px; color:var(--muted); font-weight:700}
     .list li{margin:10px 0}
 
     .section{
@@ -226,9 +252,7 @@
       grid-template-columns: 1fr 1fr 1fr;
       gap:14px;
     }
-    @media (max-width: 920px){
-      .cols{grid-template-columns:1fr}
-    }
+    @media (max-width: 920px){.cols{grid-template-columns:1fr}}
 
     .step{
       border:1px solid var(--line);
@@ -259,19 +283,14 @@
     summary{cursor:pointer; font-weight:900; outline:none}
     details p{margin:12px 0 0; color:var(--muted); font-weight:700}
 
-    .footer{
-      margin-top:8px;
-      color:var(--muted);
-      font-size:13px;
-      font-weight:700;
-    }
+    .footer{margin-top:8px; color:var(--muted); font-size:13px; font-weight:700}
 
     .sticky{
       position:fixed;
       left:0; right:0; bottom:0;
       padding:12px 14px;
-      background: rgba(11,16,32,.82);
-      backdrop-filter: blur(10px);
+      background: rgba(11,16,32,.78);
+      backdrop-filter: blur(12px);
       border-top:1px solid var(--line);
       z-index:20;
     }
@@ -297,12 +316,12 @@
     <div class="topbar">
       <div class="brand">
         <span style="width:12px;height:12px;border-radius:4px;background:var(--accent2);display:inline-block"></span>
-        <span>Switch to Octopus</span>
+        <span>Switch to Octopus Energy</span>
       </div>
 
       <div class="badge">
         <span class="dot"></span>
-        <span>£50 bonus, if eligible and the switch completes</span>
+        <span>The UK's most awarded energy supplier</span>
       </div>
     </div>
 
@@ -341,20 +360,8 @@
           <h2>What you get</h2>
           <ul class="list">
             <li><strong>£50 referral bonus</strong> for you (if eligible, after the switch completes)</li>
-            <li><strong>£50 referral bonus</strong> for me (same conditions)</li>
             <li><strong>Online sign-up</strong>, no calls needed</li>
             <li><strong>See the quote first</strong>, decide after</li>
-          </ul>
-        </div>
-
-        <div style="height:16px"></div>
-
-        <div class="card" style="box-shadow:none; padding:0; border:none; background:transparent;">
-          <h2>Why this page exists</h2>
-          <ul class="list">
-            <li>One link, one action</li>
-            <li>Answers to the common worries</li>
-            <li>No fluff, just the steps</li>
           </ul>
         </div>
       </section>
@@ -378,27 +385,6 @@
             <p>Complete the switch, then wait for confirmation and the reward timeline.</p>
           </div>
         </div>
-      </section>
-
-      <section class="section">
-        <h2>Quick reasons people switch</h2>
-        <div class="cols">
-          <div class="step">
-            <h3>Sign up online in minutes</h3>
-            <p>No calls needed, you can do it on your phone or laptop.</p>
-          </div>
-          <div class="step">
-            <h3>Tariffs for EV and smart meters</h3>
-            <p>If you have the kit, you may find options that fit better.</p>
-          </div>
-          <div class="step">
-            <h3>£50 referral bonus</h3>
-            <p>If the offer is active and you are eligible, it is a nice extra.</p>
-          </div>
-        </div>
-        <p class="micro" style="margin:16px 0 0">
-          Keep this honest. If something changes, check the official referral terms before switching.
-        </p>
       </section>
 
       <section class="section" id="faq">
@@ -475,7 +461,6 @@
   </div>
 
   <script>
-    // Optional: track FAQ opens
     document.querySelectorAll('details').forEach((d) => {
       d.addEventListener('toggle', () => {
         if (d.open) gtag('event','faq_open',{
@@ -487,4 +472,3 @@
   </script>
 </body>
 </html>
-
