@@ -6,6 +6,11 @@
   <title>Switch and claim your referral bonus</title>
   <meta name="description" content="Switch using my referral link and claim the current referral bonus. Simple steps, quick switch, clear FAQs." />
 
+  <!-- Font fallback that matches Octopus style closely -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
   <style>
     :root{
       --bg:#0b1020;
@@ -14,33 +19,46 @@
       --text:#eef2ff;
       --muted:#b9c2e6;
       --line:rgba(255,255,255,.10);
-      --accent:#7c3aed;
-      --accent2:#22c55e;
+
+      /* Accent colour */
+      --accent:#F050F8;
+      --accent2:#F050F8;
+
       --danger:#fb7185;
       --shadow: 0 16px 40px rgba(0,0,0,.35);
       --radius: 18px;
-      --max: 1080px;
+      --max: 980px;
     }
 
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
+      /* Octopus-like font stack: Chromatophore if you have it, otherwise Figtree */
+      font-family: "Chromatophore", "Figtree", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
+      /* Background glows (unchanged) */
       background:
         radial-gradient(1200px 700px at 15% 10%, rgba(124,58,237,.35), transparent 55%),
         radial-gradient(900px 600px at 85% 20%, rgba(34,197,94,.25), transparent 55%),
         radial-gradient(800px 500px at 60% 90%, rgba(251,113,133,.18), transparent 55%),
         var(--bg);
+
       color:var(--text);
       line-height:1.5;
+      text-rendering: geometricPrecision;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding:28px 16px 90px}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 16px 110px}
+
     .topbar{
       display:flex; align-items:center; justify-content:space-between; gap:12px;
       padding:10px 0 18px;
+      flex-wrap:wrap;
     }
     .brand{
       display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px;
@@ -54,18 +72,10 @@
     }
     .badge .dot{
       width:8px; height:8px; border-radius:99px; background: var(--accent2);
-      box-shadow: 0 0 0 4px rgba(34,197,94,.12);
+      box-shadow: 0 0 0 4px rgba(240,80,248,.14);
     }
 
-    .grid{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap:18px;
-      align-items:stretch;
-    }
-    @media (max-width: 920px){
-      .grid{grid-template-columns:1fr}
-    }
+    .stack{display:flex; flex-direction:column; gap:14px}
 
     .hero{
       border:1px solid var(--line);
@@ -80,26 +90,31 @@
       gap:8px; align-items:center;
       padding:7px 10px;
       border-radius:999px;
-      background: rgba(124,58,237,.18);
-      border:1px solid rgba(124,58,237,.35);
-      color:#e9ddff;
+      background: rgba(240,80,248,.16);
+      border:1px solid rgba(240,80,248,.35);
+      color:#ffe1ff;
       font-size:13px;
-      font-weight:700;
+      font-weight:800;
     }
+
+    /* Slightly bigger headline */
     h1{
       margin:14px 0 10px;
-      font-size:44px;
-      line-height:1.08;
-      letter-spacing:-.6px;
+      font-size:50px;
+      line-height:1.06;
+      letter-spacing:-.7px;
+      font-weight:900;
     }
     @media (max-width: 520px){
-      h1{font-size:34px}
+      h1{font-size:38px}
     }
+
     .sub{
       margin:0;
       color:var(--muted);
       font-size:16px;
       max-width: 62ch;
+      font-weight:500;
     }
 
     .proof-row{
@@ -114,15 +129,28 @@
       border:1px solid var(--line);
       color:var(--muted);
       font-size:13px;
+      font-weight:600;
     }
     .pill strong{color:var(--text)}
     .star{color:#ffd166}
 
-    .cta-area{
+    /* Centrally aligned CTA */
+    .cta-centre{
       margin-top:18px;
-      display:flex; flex-wrap:wrap; gap:10px;
-      align-items:center;
+      border:1px solid rgba(240,80,248,.35);
+      background: rgba(240,80,248,.10);
+      border-radius: 18px;
+      padding:16px;
     }
+    .cta-centre-inner{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      gap:10px;
+    }
+    .cta-centre .micro{max-width: 70ch}
+
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
       padding:14px 16px;
@@ -137,10 +165,13 @@
     }
     .btn:active{transform: translateY(1px)}
     .btn-primary{
-      background: linear-gradient(90deg, var(--accent2), #16a34a);
-      color:#05210f;
-      border-color: rgba(34,197,94,.35);
-      box-shadow: 0 10px 30px rgba(34,197,94,.18);
+      width:min(520px, 100%);
+      background: linear-gradient(90deg, var(--accent2), #c400d4);
+      color:#1f0022;
+      border-color: rgba(240,80,248,.45);
+      box-shadow: 0 10px 30px rgba(240,80,248,.18);
+      padding:16px 18px;
+      font-size:16px;
     }
     .btn-ghost{
       background: rgba(255,255,255,.03);
@@ -149,71 +180,40 @@
     .micro{
       color:var(--muted);
       font-size:13px;
-    }
-
-    .side{
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.03);
-      box-shadow: var(--shadow);
-      padding:18px;
-      display:flex;
-      flex-direction:column;
-      gap:12px;
+      font-weight:600;
     }
 
     .card{
       border:1px solid var(--line);
       border-radius: 16px;
       background: rgba(255,255,255,.03);
-      padding:14px;
+      padding:16px;
+      box-shadow: var(--shadow);
     }
     .card h2{
       margin:0 0 10px;
       font-size:16px;
       letter-spacing:-.2px;
+      font-weight:900;
     }
-    .list{margin:0; padding-left:18px; color:var(--muted)}
+    .list{margin:0; padding-left:18px; color:var(--muted); font-weight:600}
     .list li{margin:8px 0}
     .list strong{color:var(--text)}
 
-    .ref-box{
-      border:1px solid rgba(124,58,237,.35);
-      background: rgba(124,58,237,.12);
-      border-radius: 16px;
-      padding:14px;
-    }
-    .ref-label{font-size:13px; color:#e9ddff; margin:0 0 8px; font-weight:800}
-    .ref-row{
-      display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:space-between;
-    }
-    .ref-link{
-      display:flex; align-items:center; gap:10px;
-      padding:10px 12px;
-      border:1px solid rgba(255,255,255,.14);
-      border-radius: 12px;
-      background: rgba(0,0,0,.18);
-      font-weight:800;
-      overflow:hidden;
-    }
-    .ref-link code{
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      color: var(--text);
-      font-size:13px;
-    }
-
     .section{
-      margin-top:18px;
       border:1px solid var(--line);
       border-radius: var(--radius);
       background: rgba(255,255,255,.03);
       padding:18px;
+      box-shadow: var(--shadow);
     }
     .section h2{
       margin:0 0 12px;
       font-size:20px;
       letter-spacing:-.3px;
+      font-weight:900;
     }
+
     .cols{
       display:grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -233,14 +233,14 @@
       width:34px; height:34px;
       display:inline-flex; align-items:center; justify-content:center;
       border-radius: 12px;
-      background: rgba(34,197,94,.18);
-      border:1px solid rgba(34,197,94,.35);
-      color:#d4ffe5;
+      background: rgba(240,80,248,.16);
+      border:1px solid rgba(240,80,248,.40);
+      color:#ffe1ff;
       font-weight:900;
       margin-bottom:8px;
     }
-    .step h3{margin:0 0 6px; font-size:16px}
-    .step p{margin:0; color:var(--muted); font-size:14px}
+    .step h3{margin:0 0 6px; font-size:16px; font-weight:900}
+    .step p{margin:0; color:var(--muted); font-size:14px; font-weight:600}
 
     details{
       border:1px solid var(--line);
@@ -254,15 +254,16 @@
       font-weight:900;
       outline:none;
     }
-    details p{margin:10px 0 0; color:var(--muted)}
+    details p{margin:10px 0 0; color:var(--muted); font-weight:600}
 
     .footer{
-      margin-top:18px;
+      margin-top:6px;
       color:var(--muted);
       font-size:12px;
+      font-weight:600;
     }
 
-    /* Sticky mobile CTA */
+    /* Sticky CTA */
     .sticky{
       position:fixed;
       left:0; right:0; bottom:0;
@@ -270,7 +271,6 @@
       background: rgba(11,16,32,.82);
       backdrop-filter: blur(10px);
       border-top:1px solid var(--line);
-      display:none;
       z-index:20;
     }
     .sticky .sticky-inner{
@@ -281,16 +281,12 @@
       align-items:center;
       justify-content:space-between;
     }
-    .sticky .txt{color:var(--muted); font-size:12px}
-    @media (max-width: 920px){
-      .sticky{display:block}
-    }
+    .sticky .txt{color:var(--muted); font-size:12px; font-weight:700}
   </style>
 </head>
 
 <body>
   <div class="wrap">
-
     <div class="topbar">
       <div class="brand">
         <span style="width:12px;height:12px;border-radius:4px;background:var(--accent2);display:inline-block"></span>
@@ -303,15 +299,12 @@
       </div>
     </div>
 
-    <div class="grid">
-      <!-- LEFT: Main conversion block -->
+    <div class="stack">
       <section class="hero">
         <div class="hero-inner">
           <div class="kicker">Limited time offer (if available)</div>
 
-          <h1>
-            Switch in minutes and claim your referral bonus
-          </h1>
+          <h1>Switch in minutes and claim your referral bonus</h1>
 
           <p class="sub">
             Use my referral link to start your switch. If the offer is active, you and your friend can both get a bonus after the switch completes.
@@ -323,37 +316,20 @@
             <div class="pill"><strong>No stress</strong>, your new supplier handles it</div>
           </div>
 
-          <div class="cta-area">
-            <!-- Replace href with your referral link -->
-            <a class="btn btn-primary" href="https://bit.ly/41PlcgZ" target="_blank" rel="noopener">
-              Claim bonus, start switch
-              <span aria-hidden="true">→</span>
-            </a>
-            <a class="btn btn-ghost" href="#faq">Read FAQs first</a>
-            <div class="micro">Tip: open the link, then complete the quote in one go.</div>
+          <div class="cta-centre">
+            <div class="cta-centre-inner">
+              <a class="btn btn-primary" href="https://tinyurl.com/4ankyuxd" target="_blank" rel="noopener">
+                Claim bonus, start switch <span aria-hidden="true">→</span>
+              </a>
+              <a class="btn btn-ghost" href="#faq">Read FAQs first</a>
+              <div class="micro">Tip: open the link, then complete the quote in one go.</div>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- RIGHT: Offer clarity block -->
-      <aside class="side">
-        <div class="ref-box">
-          <p class="ref-label">Your referral link</p>
-          <div class="ref-row">
-            <div class="ref-link" title="Your link">
-              <span aria-hidden="true">🔗</span>
-              <code>https://bit.ly/41PlcgZ</code>
-            </div>
-            <a class="btn btn-primary" style="padding:12px 14px" href="https://bit.ly/41PlcgZ" target="_blank" rel="noopener">
-              Use link
-            </a>
-          </div>
-          <p class="micro" style="margin:10px 0 0">
-            If you need to enter a code manually, add it during sign-up if the supplier allows.
-          </p>
-        </div>
-
-        <div class="card">
+      <section class="card">
+        <div class="card" style="box-shadow:none">
           <h2>What you get</h2>
           <ul class="list">
             <li><strong>Bonus for you</strong> (when the switch completes, if the offer is active)</li>
@@ -362,7 +338,9 @@
           </ul>
         </div>
 
-        <div class="card">
+        <div style="height:12px"></div>
+
+        <div class="card" style="box-shadow:none">
           <h2>Why this page exists</h2>
           <ul class="list">
             <li>One link, one action</li>
@@ -370,105 +348,103 @@
             <li>No fluff, just the steps</li>
           </ul>
         </div>
-      </aside>
-    </div>
+      </section>
 
-    <section class="section">
-      <h2>How it works</h2>
-      <div class="cols">
-        <div class="step">
-          <div class="num">1</div>
-          <h3>Tap the link</h3>
-          <p>Start from the referral link so the reward can track properly.</p>
+      <section class="section">
+        <h2>How it works</h2>
+        <div class="cols">
+          <div class="step">
+            <div class="num">1</div>
+            <h3>Tap the link</h3>
+            <p>Start from the referral link so the reward can track properly.</p>
+          </div>
+          <div class="step">
+            <div class="num">2</div>
+            <h3>Get your quote</h3>
+            <p>Have a recent bill nearby, or your usage estimate.</p>
+          </div>
+          <div class="step">
+            <div class="num">3</div>
+            <h3>Finish sign-up</h3>
+            <p>Complete the switch, then wait for confirmation and the bonus timeline.</p>
+          </div>
         </div>
-        <div class="step">
-          <div class="num">2</div>
-          <h3>Get your quote</h3>
-          <p>Have a recent bill nearby, or your usage estimate.</p>
+      </section>
+
+      <section class="section">
+        <h2>Quick reasons people switch</h2>
+        <div class="cols">
+          <div class="step">
+            <h3>Less hassle</h3>
+            <p>Online sign-up, clear account, decent support (check reviews yourself).</p>
+          </div>
+          <div class="step">
+            <h3>Smart tariffs</h3>
+            <p>If you have EV or solar, you may find options that fit better.</p>
+          </div>
+          <div class="step">
+            <h3>Referral bonus</h3>
+            <p>If the offer is active, it is a nice extra for switching via a friend.</p>
+          </div>
         </div>
-        <div class="step">
-          <div class="num">3</div>
-          <h3>Finish sign-up</h3>
-          <p>Complete the switch, then wait for confirmation and the bonus timeline.</p>
+        <p class="micro" style="margin:12px 0 0">
+          Keep this honest. If you do not know something, say "check the official page" instead of guessing.
+        </p>
+      </section>
+
+      <section class="section" id="faq">
+        <h2>FAQs (the stuff that stops people clicking)</h2>
+
+        <details>
+          <summary>Will I definitely get the bonus?</summary>
+          <p>
+            Only if the referral offer is active and the switch completes under the current terms. Always check the official referral page before you start.
+          </p>
+        </details>
+
+        <details>
+          <summary>How long does switching take?</summary>
+          <p>
+            It depends on the supplier and the type of switch. Many switches complete in days, but timings vary.
+          </p>
+        </details>
+
+        <details>
+          <summary>Can I use a comparison site and still get the referral?</summary>
+          <p>
+            Often no. If the bonus matters, start from the referral link, not from a comparison journey.
+          </p>
+        </details>
+
+        <details>
+          <summary>What if I forget to use the link?</summary>
+          <p>
+            Some suppliers can add it after sign-up, some cannot. If you forget, contact support as soon as possible and ask.
+          </p>
+        </details>
+
+        <div class="cta-centre" style="margin-top:14px">
+          <div class="cta-centre-inner">
+            <a class="btn btn-primary" href="https://tinyurl.com/4ankyuxd" target="_blank" rel="noopener">
+              Claim bonus, start switch <span aria-hidden="true">→</span>
+            </a>
+            <div class="micro">This opens the referral sign-up in a new tab.</div>
+          </div>
         </div>
+      </section>
+
+      <div class="footer">
+        <p>
+          Disclaimer: This page is not affiliated with any energy supplier. Offers and terms can change, always verify on the official site before switching.
+        </p>
       </div>
-    </section>
-
-    <section class="section">
-      <h2>Quick reasons people switch</h2>
-      <div class="cols">
-        <div class="step">
-          <h3>Less hassle</h3>
-          <p>Online sign-up, clear account, decent support (check reviews yourself).</p>
-        </div>
-        <div class="step">
-          <h3>Smart tariffs</h3>
-          <p>If you have EV or solar, you may find options that fit better.</p>
-        </div>
-        <div class="step">
-          <h3>Referral bonus</h3>
-          <p>If the offer is active, it is a nice extra for switching via a friend.</p>
-        </div>
-      </div>
-      <p class="micro" style="margin:12px 0 0">
-        Keep this honest. If you do not know something, say "check the official page" instead of guessing.
-      </p>
-    </section>
-
-    <section class="section" id="faq">
-      <h2>FAQs (the stuff that stops people clicking)</h2>
-
-      <details>
-        <summary>Will I definitely get the bonus?</summary>
-        <p>
-          Only if the referral offer is active and the switch completes under the current terms. Always check the official referral page before you start.
-        </p>
-      </details>
-
-      <details>
-        <summary>How long does switching take?</summary>
-        <p>
-          It depends on the supplier and the type of switch. Many switches complete in days, but timings vary.
-        </p>
-      </details>
-
-      <details>
-        <summary>Can I use a comparison site and still get the referral?</summary>
-        <p>
-          Often no. If the bonus matters, start from the referral link, not from a comparison journey.
-        </p>
-      </details>
-
-      <details>
-        <summary>What if I forget to use the link?</summary>
-        <p>
-          Some suppliers can add it after sign-up, some cannot. If you forget, contact support as soon as possible and ask.
-        </p>
-      </details>
-
-      <div class="cta-area" style="margin-top:14px">
-        <a class="btn btn-primary" href="https://bit.ly/41PlcgZ" target="_blank" rel="noopener">
-          Claim bonus, start switch
-          <span aria-hidden="true">→</span>
-        </a>
-        <div class="micro">This opens the referral sign-up in a new tab.</div>
-      </div>
-    </section>
-
-    <div class="footer">
-      <p>
-        Disclaimer: This page is not affiliated with any energy supplier. Offers and terms can change, always verify on the official site before switching.
-      </p>
     </div>
   </div>
 
-  <!-- Sticky mobile CTA -->
   <div class="sticky" role="region" aria-label="Quick action">
     <div class="sticky-inner">
-      <div class="txt">
-        Ready to switch? Use the referral link.
-      </div>
-      <a class="btn btn-primary" style="padding:12px 14px" href="https://bit.ly/41PlcgZ" target="_blank" rel="noopener">
+      <div class="txt">Ready to switch? Use the referral link.</div>
+      <a class="btn btn-primary" style="padding:12px 14px" href="https://tinyurl.com/4ankyuxd" target="_blank" rel="noopener">
         Start switch →
       </a>
     </div>
