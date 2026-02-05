@@ -1,39 +1,35 @@
 <!doctype html>
 <html lang="en-GB">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17932665758"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-17932665758');
-</script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Switch and claim your referral bonus</title>
-  <meta name="description" content="Switch using my referral link and claim the current referral bonus. Simple steps, quick switch, clear FAQs." />
+  <title>Get £50 when you switch to Octopus</title>
+  <meta name="description" content="Switch using my referral link. If eligible, you get £50 and I get £50 after the switch completes. Quick steps, clear FAQs." />
 
-  <!-- Font fallback that matches Octopus style closely -->
+  <!-- Font fallback close to Octopus style -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17932665758"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17932665758');
+  </script>
+
   <style>
     :root{
       --bg:#0b1020;
-      --panel:#0f1733;
-      --card:#121c3d;
       --text:#eef2ff;
       --muted:#b9c2e6;
       --line:rgba(255,255,255,.10);
 
-      /* Accent colour */
       --accent:#F050F8;
       --accent2:#F050F8;
 
-      --danger:#fb7185;
       --shadow: 0 16px 40px rgba(0,0,0,.35);
       --radius: 18px;
       --max: 980px;
@@ -43,17 +39,12 @@
     html,body{height:100%}
     body{
       margin:0;
-
-      /* Octopus-like font stack: Chromatophore if you have it, otherwise Figtree */
       font-family: "Chromatophore", "Figtree", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-
-      /* Background glows (unchanged) */
       background:
         radial-gradient(1200px 700px at 15% 10%, rgba(124,58,237,.35), transparent 55%),
         radial-gradient(900px 600px at 85% 20%, rgba(34,197,94,.25), transparent 55%),
         radial-gradient(800px 500px at 60% 90%, rgba(251,113,133,.18), transparent 55%),
         var(--bg);
-
       color:var(--text);
       line-height:1.5;
       text-rendering: geometricPrecision;
@@ -70,7 +61,7 @@
       flex-wrap:wrap;
     }
     .brand{
-      display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px;
+      display:flex; align-items:center; gap:10px; font-weight:900; letter-spacing:.2px;
     }
     .badge{
       display:inline-flex; align-items:center; gap:8px;
@@ -78,6 +69,7 @@
       border-radius:999px; color:var(--muted);
       background: rgba(255,255,255,.03);
       font-size:13px;
+      font-weight:700;
     }
     .badge .dot{
       width:8px; height:8px; border-radius:99px; background: var(--accent2);
@@ -94,41 +86,32 @@
       overflow:hidden;
     }
     .hero-inner{padding:26px}
-    .kicker{
-      display:inline-flex;
-      gap:8px; align-items:center;
-      padding:7px 10px;
-      border-radius:999px;
-      background: rgba(240,80,248,.16);
-      border:1px solid rgba(240,80,248,.35);
-      color:#ffe1ff;
-      font-size:13px;
-      font-weight:800;
-    }
 
-    /* Slightly bigger headline */
     h1{
       margin:14px 0 10px;
-      font-size:50px;
-      line-height:1.06;
-      letter-spacing:-.7px;
+      font-size:52px;
+      line-height:1.05;
+      letter-spacing:-.8px;
       font-weight:900;
+      text-align:center;
     }
     @media (max-width: 520px){
-      h1{font-size:38px}
+      h1{font-size:40px}
     }
 
     .sub{
-      margin:0;
+      margin:0 auto;
       color:var(--muted);
-      font-size:16px;
-      max-width: 62ch;
-      font-weight:500;
+      font-size:20.8px;
+      max-width: 70ch;
+      font-weight:700;
+      text-align:center;
     }
 
     .proof-row{
       margin-top:16px;
       display:flex; flex-wrap:wrap; gap:10px;
+      justify-content:center;
     }
     .pill{
       display:inline-flex; align-items:center; gap:8px;
@@ -138,12 +121,11 @@
       border:1px solid var(--line);
       color:var(--muted);
       font-size:13px;
-      font-weight:600;
+      font-weight:700;
     }
     .pill strong{color:var(--text)}
     .star{color:#ffd166}
 
-    /* Centrally aligned CTA */
     .cta-centre{
       margin-top:18px;
       border:1px solid rgba(240,80,248,.35);
@@ -158,7 +140,6 @@
       text-align:center;
       gap:10px;
     }
-    .cta-centre .micro{max-width: 70ch}
 
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
@@ -173,23 +154,24 @@
       white-space:nowrap;
     }
     .btn:active{transform: translateY(1px)}
+
     .btn-primary{
-      width:min(520px, 100%);
+      width:min(560px, 100%);
       background: linear-gradient(90deg, var(--accent2), #c400d4);
       color:#1f0022;
       border-color: rgba(240,80,248,.45);
       box-shadow: 0 10px 30px rgba(240,80,248,.18);
-      padding:16px 18px;
-      font-size:16px;
+      padding:18px 20px;
+      font-size:20.8px;
     }
-    .btn-ghost{
-      background: rgba(255,255,255,.03);
-      color: var(--text);
-    }
+
     .micro{
       color:var(--muted);
       font-size:13px;
-      font-weight:600;
+      font-weight:700;
+      max-width: 80ch;
+      margin:0 auto;
+      text-align:center;
     }
 
     .card{
@@ -205,7 +187,7 @@
       letter-spacing:-.2px;
       font-weight:900;
     }
-    .list{margin:0; padding-left:18px; color:var(--muted); font-weight:600}
+    .list{margin:0; padding-left:18px; color:var(--muted); font-weight:700}
     .list li{margin:8px 0}
     .list strong{color:var(--text)}
 
@@ -249,7 +231,7 @@
       margin-bottom:8px;
     }
     .step h3{margin:0 0 6px; font-size:16px; font-weight:900}
-    .step p{margin:0; color:var(--muted); font-size:14px; font-weight:600}
+    .step p{margin:0; color:var(--muted); font-size:14px; font-weight:700}
 
     details{
       border:1px solid var(--line);
@@ -263,16 +245,15 @@
       font-weight:900;
       outline:none;
     }
-    details p{margin:10px 0 0; color:var(--muted); font-weight:600}
+    details p{margin:10px 0 0; color:var(--muted); font-weight:700}
 
     .footer{
       margin-top:6px;
       color:var(--muted);
       font-size:12px;
-      font-weight:600;
+      font-weight:700;
     }
 
-    /* Sticky CTA */
     .sticky{
       position:fixed;
       left:0; right:0; bottom:0;
@@ -290,7 +271,7 @@
       align-items:center;
       justify-content:space-between;
     }
-    .sticky .txt{color:var(--muted); font-size:12px; font-weight:700}
+    .sticky .txt{color:var(--muted); font-size:12px; font-weight:900}
   </style>
 </head>
 
@@ -299,39 +280,42 @@
     <div class="topbar">
       <div class="brand">
         <span style="width:12px;height:12px;border-radius:4px;background:var(--accent2);display:inline-block"></span>
-        <span>Referral bonus</span>
+        <span>Octopus referral</span>
       </div>
 
       <div class="badge">
         <span class="dot"></span>
-        <span>Updated regularly, check the official terms before you switch</span>
+        <span>£50 bonus, if eligible and the switch completes</span>
       </div>
     </div>
 
     <div class="stack">
       <section class="hero">
         <div class="hero-inner">
-          <div class="kicker">Limited time offer (if available)</div>
 
-          <h1>Switch in minutes and claim your referral bonus</h1>
+          <h1>Get £50 when you switch to Octopus</h1>
 
-          <p class="sub">
-            Use my referral link to start your switch. If the offer is active, you and your friend can both get a bonus after the switch completes.
-          </p>
+          <p class="sub">Switch &amp; Save with the UK's biggest green energy supplier.</p>
 
           <div class="proof-row">
-            <div class="pill"><span class="star">★</span><strong>Simple steps</strong>, no paperwork</div>
-            <div class="pill"><strong>Fast switch</strong> (typical supplier timelines apply)</div>
-            <div class="pill"><strong>No stress</strong>, your new supplier handles it</div>
+            <div class="pill"><span class="star">★</span><strong>Free £50 Off Your First Bill</strong></div>
+            <div class="pill"><strong>Award Winning Customer Service</strong></div>
+            <div class="pill"><strong>Support Green Energy</strong></div>
           </div>
 
           <div class="cta-centre">
             <div class="cta-centre-inner">
-              <a class="btn btn-primary" href="https://tinyurl.com/4ankyuxd" target="_blank" rel="noopener">
-                Claim bonus, start switch <span aria-hidden="true">→</span>
+              <a class="btn btn-primary"
+                 href="https://tinyurl.com/4ankyuxd"
+                 target="_blank"
+                 rel="noopener"
+                 onclick="gtag('event','cta_click_top',{event_category:'engagement'});">
+                Request a quote and claim £50 <span aria-hidden="true">→</span>
               </a>
-              <a class="btn btn-ghost" href="#faq">Read FAQs first</a>
-              <div class="micro">Tip: open the link, then complete the quote in one go.</div>
+
+              <div class="micro">
+                Tip: start from the link and finish the quote in one go, it helps the referral track properly.
+              </div>
             </div>
           </div>
         </div>
@@ -341,9 +325,10 @@
         <div class="card" style="box-shadow:none">
           <h2>What you get</h2>
           <ul class="list">
-            <li><strong>Bonus for you</strong> (when the switch completes, if the offer is active)</li>
-            <li><strong>Bonus for your friend</strong> (same conditions)</li>
-            <li><strong>Clear next step</strong>, tap the button and get a quote</li>
+            <li><strong>£50 referral bonus</strong> for you (if eligible, after the switch completes)</li>
+            <li><strong>£50 referral bonus</strong> for me (same conditions)</li>
+            <li><strong>Online sign-up</strong>, no calls needed</li>
+            <li><strong>See the quote first</strong>, decide after</li>
           </ul>
         </div>
 
@@ -365,7 +350,7 @@
           <div class="step">
             <div class="num">1</div>
             <h3>Tap the link</h3>
-            <p>Start from the referral link so the reward can track properly.</p>
+            <p>Start from the referral link so the £50 reward can track properly.</p>
           </div>
           <div class="step">
             <div class="num">2</div>
@@ -375,7 +360,7 @@
           <div class="step">
             <div class="num">3</div>
             <h3>Finish sign-up</h3>
-            <p>Complete the switch, then wait for confirmation and the bonus timeline.</p>
+            <p>Complete the switch, then wait for confirmation and the reward timeline.</p>
           </div>
         </div>
       </section>
@@ -384,20 +369,20 @@
         <h2>Quick reasons people switch</h2>
         <div class="cols">
           <div class="step">
-            <h3>Less hassle</h3>
-            <p>Online sign-up, clear account, decent support (check reviews yourself).</p>
+            <h3>Sign up online in minutes</h3>
+            <p>No calls needed, you can do it on your phone or laptop.</p>
           </div>
           <div class="step">
-            <h3>Smart tariffs</h3>
-            <p>If you have EV or solar, you may find options that fit better.</p>
+            <h3>Tariffs for EV and smart meters</h3>
+            <p>If you have the kit, you may find options that fit better.</p>
           </div>
           <div class="step">
-            <h3>Referral bonus</h3>
-            <p>If the offer is active, it is a nice extra for switching via a friend.</p>
+            <h3>£50 referral bonus</h3>
+            <p>If the offer is active and you are eligible, it is a nice extra.</p>
           </div>
         </div>
         <p class="micro" style="margin:12px 0 0">
-          Keep this honest. If you do not know something, say "check the official page" instead of guessing.
+          Keep this honest. If something changes, check the official referral terms before switching.
         </p>
       </section>
 
@@ -405,46 +390,56 @@
         <h2>FAQs (the stuff that stops people clicking)</h2>
 
         <details>
-          <summary>Will I definitely get the bonus?</summary>
+          <summary>Will I definitely get the £50?</summary>
           <p>
-            Only if the referral offer is active and the switch completes under the current terms. Always check the official referral page before you start.
+            Only if the referral offer is active, you are eligible, and the switch completes under the current terms.
+            You will see the offer details during sign-up.
           </p>
+        </details>
+
+        <details>
+          <summary>Will my energy supply stop during the switch?</summary>
+          <p>No. Switching is admin only, your supply stays on.</p>
+        </details>
+
+        <details>
+          <summary>Do I need to tell my current supplier?</summary>
+          <p>Usually no. Your new supplier handles the switch process for you.</p>
         </details>
 
         <details>
           <summary>How long does switching take?</summary>
-          <p>
-            It depends on the supplier and the type of switch. Many switches complete in days, but timings vary.
-          </p>
+          <p>It depends on the type of switch and supplier timings. Many switches complete in days, but it varies.</p>
         </details>
 
         <details>
           <summary>Can I use a comparison site and still get the referral?</summary>
-          <p>
-            Often no. If the bonus matters, start from the referral link, not from a comparison journey.
-          </p>
+          <p>Often no. If the £50 matters, start from the referral link, not from a comparison journey.</p>
         </details>
 
         <details>
           <summary>What if I forget to use the link?</summary>
-          <p>
-            Some suppliers can add it after sign-up, some cannot. If you forget, contact support as soon as possible and ask.
-          </p>
+          <p>Some suppliers can add it after sign-up, some cannot. If you forget, contact support as soon as possible and ask.</p>
         </details>
 
         <div class="cta-centre" style="margin-top:14px">
           <div class="cta-centre-inner">
-            <a class="btn btn-primary" href="https://tinyurl.com/4ankyuxd" target="_blank" rel="noopener">
-              Claim bonus, start switch <span aria-hidden="true">→</span>
+            <a class="btn btn-primary"
+               href="https://tinyurl.com/4ankyuxd"
+               target="_blank"
+               rel="noopener"
+               onclick="gtag('event','cta_click_faq',{event_category:'engagement'});">
+              Request a quote and claim £50 <span aria-hidden="true">→</span>
             </a>
-            <div class="micro">This opens the referral sign-up in a new tab.</div>
+            <div class="micro">Opens in a new tab.</div>
           </div>
         </div>
       </section>
 
       <div class="footer">
         <p>
-          Disclaimer: This page is not affiliated with any energy supplier. Offers and terms can change, always verify on the official site before switching.
+          Disclaimer: This page is not affiliated with Octopus Energy. Offers and terms can change, always verify on the official site before switching.
+          I may receive a referral reward if you switch using my link.
         </p>
       </div>
     </div>
@@ -452,12 +447,29 @@
 
   <div class="sticky" role="region" aria-label="Quick action">
     <div class="sticky-inner">
-      <div class="txt">Ready to switch? Use the referral link.</div>
-      <a class="btn btn-primary" style="padding:12px 14px" href="https://tinyurl.com/4ankyuxd" target="_blank" rel="noopener">
+      <div class="txt">Ready to switch and claim £50?</div>
+      <a class="btn btn-primary"
+         style="padding:12px 14px"
+         href="https://tinyurl.com/4ankyuxd"
+         target="_blank"
+         rel="noopener"
+         onclick="gtag('event','cta_click_sticky',{event_category:'engagement'});">
         Start switch →
       </a>
     </div>
   </div>
+
+  <script>
+    // Optional: track FAQ opens
+    document.querySelectorAll('details').forEach((d) => {
+      d.addEventListener('toggle', () => {
+        if (d.open) gtag('event','faq_open',{
+          event_category:'engagement',
+          event_label: d.querySelector('summary')?.innerText || ''
+        });
+      });
+    });
+  </script>
 </body>
 </html>
 
